@@ -1,35 +1,168 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
-body{
+/* 
+The designs were created to the following widths:
+- Mobile: 375px
+- Desktop: 1440px
+*/
+
+/* Imports and variables */
+:root {
+    --color-primary-red: hsl(0, 36%, 70%);
+    --color-primary-soft: hsl(0, 93%, 68%);
+    --color-neutral: hsl(0, 6%, 24%);
+
+    --gradient-primary: linear(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    --gradient-secondary: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+/* Defaults */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: 0px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    line-height: 1.5;
+    color: var(--color-neutral);
+
+    scrollbar-width: none;
+}
+
+a {
+    color: var(--color-primary-red);
+    text-decoration: none;
+}
+
+/* Layout */
+.book{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    height: 100vh;
+    
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.left {
+    grid-column: 1 / span 4;
+
+    padding: 2rem;  
+
+    background-image: url("./images/bg-pattern-desktop.svg");
+    background-size: cover;
+}
+
+.right {
+    grid-column: 5 / span 3;
+    padding: 20px;
+
+    background-image: url("./images/hero-desktop.jpg");
+    background-size: cover;
+}
+
+/* Main content */
+.cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 450px;
+    padding-top: 16px;
+}
+
+.cover-title {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    line-height: 1.2;
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--color-neutral);
+}
+
+.cover-title span {
+    color: var(--color-primary-red);
+    font-weight: 300;
+}
+
+.cover-description {
+    font-size: 1rem;
+    color: var(--color-primary-red);
+}
+
+.logo {
+    align-self: start;
+}
+
+/* Form and signup section */
+.signup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+input{
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    
+    border: 1px solid var(--color-primary-red);
+    border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 80px;
+    margin-right: -50px;
+    background: white;
+
+    width: 100%;
+    height: 50px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input:invalid{
+    border: 2px solid red;
 }
 
 
-// desktop
-@media (min-width: 768px) {
-    .container{
-        width: 80%;
-    }
+.signup-submit {
+    width: 100px;
+    height: 60px;
+    background: var(--gradient-secondary);
+    border: none;
+    border-radius: 30px;
+    z-index: 1;
+   }
+
+.signup-submit:hover {
+    background: var(--color-primary-red);
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--color-neutral);
+
+    color: var(--color-primary-red);
 }
 
-
-
-
-// mobile
-@media (max-width: 400px) {
-    .container{
-        width: 100%;
-    }
-}
-
-
-
-// animations
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+footer a {
+    color: white;
 }
